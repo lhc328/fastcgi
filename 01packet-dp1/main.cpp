@@ -5,7 +5,7 @@ using namespace std;
 void knapsack(int v[], int w[], int c, int n, int** m)
 {
     int jMax = min(w[n]-1, c);
-    for(int j=0;j<jMax;j++)
+    for(int j=0;j<=jMax;j++)
     {
         m[n][j]=0;
     }
@@ -19,7 +19,7 @@ void knapsack(int v[], int w[], int c, int n, int** m)
         for(int j=0;j<=jMax;j++)
             m[i][j] = m[i+1][j];
         for(int j=w[i];j<=c;j++)
-            m[i][j] = max(m[i+1][j-w[i]]+v[i],m[i+1][j]);   //¹Ø¼üµã
+            m[i][j] = max(m[i+1][j-w[i]]+v[i],m[i+1][j]);   //Â¹Ã˜Â¼Ã¼ÂµÃ£
     }
     m[1][c]=m[2][c];
     if(c>=w[1])
